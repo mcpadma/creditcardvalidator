@@ -1,0 +1,15 @@
+<p>
+  validation works!
+</p>
+
+<form  [formGroup]="myForm" (ngSubmit)="onSubmit(demoForm)"  novalidate style="margin-bottom:2%;">
+  <div class="form-group" style="margin-left:20%;margin-top:3%;">
+    <label for="creditCard" class="control-label">CARD 1</label>
+  
+    <input id="creditCard" [(ngModel)]="userInfo.creditCard" formControlName="creditCard" type="tel" placeholder="•••• •••• •••• ••••" 
+          style="width:35%;font-size:24px;height:5vh;">
+    <img *ngIf="isValid('creditCard')"  [src]="cardImg" class="cardImg" for="creditCard">
+  </div>
+  
+   <p *ngIf="!isValid('creditCard')" >Invalid Credit Card Number</p>
+</form>
